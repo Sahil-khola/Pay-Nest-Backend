@@ -11,11 +11,28 @@ const userSchema = new mongoose.Schema({
         unique: true,
         match: [/^\S+@\S+\.\S+$/, 'Please enter a valid email']
     },
+    phone: {
+        type: String,
+        required: true,
+        unique: true 
+    },
     password: {
         type: String,
         required: true
-    }
-})
+    },
+    upiId :{
+        type: String,
+        unique: true,
+    },
+    balance: {
+        type: Number,
+        default: 0
+    },
+    mpin: {
+        type: String,
+    },
+   
+}, {timestamps: true})
 
 const User = mongoose.model("User", userSchema);
 export default User

@@ -1,11 +1,13 @@
 import express from "express";
-import {login , signup ,getAllUser} from "../controllers/user.controller.js";
+import {login , signup , getUserProfile,setMpin} from "../controllers/user.controller.js";
 import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
 router.post("/signup", signup);
 router.post("/login", login);
-router.get("/allusers",protect,getAllUser);
+router.post("/set-mpin",protect,setMpin)
+router.get("/profile",protect, getUserProfile);
 
-export default router;  
+
+export default router;

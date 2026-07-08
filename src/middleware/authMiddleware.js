@@ -8,6 +8,7 @@ const protect = async (req,res,next)=>{
         try {
             const verfied = jwt.verify(token,process.env.JWT_SECRET);
             req.user = await User.findById(verfied.id).select("-password");
+            
             if (!req.user) {
                 return res.status(401).json({message:"Not authorized"});
             }
