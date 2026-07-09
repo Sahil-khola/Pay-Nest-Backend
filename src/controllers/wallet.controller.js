@@ -1,6 +1,7 @@
 import User from "../model/user.model.js";
 import Transaction from "../model/transation.model.js";
 import bycrypt from "bcryptjs";
+
 async function addMoney(req,res) {
     const {amount , mpin} = req.body;
     const userId = req.user.id;

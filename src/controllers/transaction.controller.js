@@ -10,6 +10,7 @@ async function sendMoney(req, res) {
   if (!mpin) return res.status(400).send("Mpin is required");
   if (amount <= 0) return res.status(400).send("Amount must be greater than 0");
   if (!phone) return res.status(400).send("Phone number is required");
+  
   try {
     const sender = await User.findById(senderId);
     if (!sender) return res.status(400).send("Sender not found");
